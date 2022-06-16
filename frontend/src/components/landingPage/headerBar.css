@@ -1,10 +1,27 @@
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
+.site-header__wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  }
+
+ul {
+    list-style-type: none;
+  }
+
+.brand {
+    background-color: white;
+}
+
+.nav,
+.brand {
+    flex: 1;
+}
+
+.nav {
+    display: inline-flexbox;
+}
+
+a {
+    justify-content: space-between;
+    margin: 5px
 }
