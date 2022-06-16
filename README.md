@@ -7,10 +7,9 @@
 <a href="https://github.com/Hen0k/tenx-cert-gen-dApp/blob/main/LICENCE"><img src="https://img.shields.io/github/license/Hen0k/tenx-cert-gen-dApp?color=2b9348" alt="License Badge"/></a>
 </div>
 </br>
+
 # tenx-cert-gen-dApp
 
-
----
 
 ## Problem Description
 
