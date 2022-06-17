@@ -2,12 +2,13 @@
 from flask import Flask
 from flask_mongoengine import MongoEngine
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 from flask_app.routes import init_routes
 
 
 db = MongoEngine()
 jwt = JWTManager()
-
+cors = CORS()
 
 def init_app():
     """Construct core Flask application."""
@@ -17,6 +18,7 @@ def init_app():
     # Initialize Plugins
     db.init_app(app)
     jwt.init_app(app)
+    cors.init_app(app)
 
     # Initialize routes
     
