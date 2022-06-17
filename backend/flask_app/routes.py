@@ -11,7 +11,7 @@ import json
 from datetime import datetime, timezone, timedelta
 
 
-def init_routes(app):
+def init_routes(app, User):
     """A factory function that takes in the server 
     object and initializes the routes.
     """
@@ -37,11 +37,28 @@ def init_routes(app):
             # Case where there is not a valid JWT. Just return the original respone
             return response
 
+    @app.route('/signup', methods=["POST"])
+    def signup():
+        email = request.json.get("email", None)
+        password = request.json.get("password", None)
+
+        user = User.objects(email=email).first()
+        print(f"User found: {user.to_json()}")
+        if not user.verify_password(password):
+            return {"msg": "Wrong email or password"}, 401
+
+        access_token = create_access_token(identity=email)
+        response = {"access_token": access_token}
+        return response
+
     @app.route('/login', methods=["POST"])
     def login():
         email = request.json.get("email", None)
         password = request.json.get("password", None)
-        if email != "test" or password != "test":
+
+        user = User.objects(email=email).first()
+        print(f"User found: {user.to_json()}")
+        if not user.verify_password(password):
             return {"msg": "Wrong email or password"}, 401
 
         access_token = create_access_token(identity=email)

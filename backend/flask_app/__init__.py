@@ -19,8 +19,10 @@ def init_app():
     jwt.init_app(app)
 
     # Initialize routes
-    app = init_routes(app)
+    
 
-    # with app.app_context():
+    with app.app_context():
+        from flask_app.models import User
+        app = init_routes(app, User)
 
     return app
