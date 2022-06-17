@@ -1,5 +1,4 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import logo from './logo.png'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
