@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import axios from '../AxiosSetup';
 import axios from 'axios';
 import { LOGIN_URL } from '../backend_urls.js';
 
@@ -55,7 +54,7 @@ const Login = (props) => {
       <div className="mb-3">
         <label>Email address</label>
         <input
-          // type="email"
+          type="email"
           text={email} 
           className="form-control"
           placeholder="Enter email"
