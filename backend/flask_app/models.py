@@ -1,14 +1,19 @@
-from flask_app import db
+from . import db
+from werkzeug.security import generate_password_hash, check_password_hash
+from uuid import uuid4
 
+
+def get_uuid():
+    return uuid4().hex
 
 class User(db.Document):
     active = db.BooleanField(default=False)
 
     # User authentication information
-    password = db.StringField()
-    email = db.StringField()
-    user_id = db.StringField()
-    address = db.StringField()
+    _password = db.StringField(required=True)
+    email = db.StringField(unique=True, required=True)
+    user_id = db.StringField(unique=True, default=get_uuid)
+    address = db.StringField(unique=True)
 
     # User information
     first_name = db.StringField(default='')
@@ -23,3 +28,14 @@ class User(db.Document):
 
     def get_user_id(self):
         return self.user_id
+
+    @property
+    def password(self):
+        raise AttributeError("Can't read password")
+
+    @password.setter
+    def password(self, password):
+        self._password = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self._password, password)
