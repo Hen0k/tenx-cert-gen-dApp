@@ -41,15 +41,20 @@ def init_routes(app, User):
     def signup():
         email = request.json.get("email", None)
         password = request.json.get("password", None)
+        first_name = request.json.get("first_name", None)
+        last_name = request.json.get("last_name", None)
 
-        user = User.objects(email=email).first()
-        print(f"User found: {user.to_json()}")
-        if not user.verify_password(password):
-            return {"msg": "Wrong email or password"}, 401
+        user = User(
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+        )
+        user.password = password
+        user.save()
+        
 
-        access_token = create_access_token(identity=email)
-        response = {"access_token": access_token}
-        return response
+        
+        return {"msg": "account created successfully"}, 201
 
     @app.route('/login', methods=["POST"])
     def login():
