@@ -2,8 +2,8 @@ import React from 'react'
 import './App.css'
 import logo from './logo.png'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Login from './components/login.component'
-import SignUp from './components/signup.component'
+import Login from './components/Login'
+import SignUp from './components/Signup'
 import useToken from './components/useToken'
 import { USER_URL } from './backend_urls.js';
 
