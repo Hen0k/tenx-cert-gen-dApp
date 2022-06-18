@@ -4,6 +4,7 @@ import logo from './logo.png'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './components/Login'
 import SignUp from './components/Signup'
+import Logout from './components/Logout'
 import useToken from './components/useToken'
 import { USER_URL } from './backend_urls.js';
 
@@ -16,6 +17,7 @@ const App = () => {
         {/* <h1 className="text" >
           10 Academy certeficate NFT minter
         </h1> */}
+        <Logout token={removeToken} />
         
         {token!=="" &&token!== null ?  
         (
