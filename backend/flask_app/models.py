@@ -13,7 +13,7 @@ class User(db.Document):
     _password = db.StringField(required=True)
     email = db.StringField(unique=True, required=True)
     user_id = db.StringField(unique=True, default=get_uuid)
-    address = db.StringField(unique=True)
+    address = db.StringField()
 
     # User information
     first_name = db.StringField(default='')

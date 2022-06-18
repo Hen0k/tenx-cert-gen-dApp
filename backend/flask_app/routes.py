@@ -15,6 +15,8 @@ def init_routes(app, User):
     """A factory function that takes in the server 
     object and initializes the routes.
     """
+
+
     @app.route("/test")
     def test():
         return "Hello, world"
@@ -76,7 +78,7 @@ def init_routes(app, User):
         unset_jwt_cookies(response)
         return response
 
-    @app.route('/user')
+    @app.route('/user', methods=["GET", "POST"])
     @jwt_required()
     def user_info():
         response_body = {

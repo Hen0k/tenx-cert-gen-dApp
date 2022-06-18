@@ -13,8 +13,8 @@ class ApplicationConfig(object):
     """ Flask application config """
     # JWT_SECRET_KEY = get_uuid()
     JWT_SECRET_KEY = os.urandom(20).hex()
-    # JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=30)
-    JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=60)
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=30)
+    # JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=60)
 
     # SECRET_KEY = os.urandom(20).hex()
 
