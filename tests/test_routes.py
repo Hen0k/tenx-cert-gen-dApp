@@ -1,4 +1,6 @@
-from backend.flask_app import init_app
+import sys
+sys.path.append("backend")
+from flask_app import init_app
 
 class TestEndpoints():
 
