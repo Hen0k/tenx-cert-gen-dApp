@@ -1,4 +1,4 @@
-from flask_app import init_app
+from backend.flask_app import init_app
 
 class TestEndpoints():
 
