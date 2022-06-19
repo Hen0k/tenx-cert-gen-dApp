@@ -81,11 +81,11 @@ def init_routes(app, User):
     @app.route('/user', methods=["GET", "POST"])
     @jwt_required()
     def user_info():
-        response_body = {
+        response_body = [{
             "name": "user-name",
             "msg": "Hello! you have successfully used the jwt token"
-        }
+        },]
 
-        return response_body
+        return jsonify(response_body)
 
     return app

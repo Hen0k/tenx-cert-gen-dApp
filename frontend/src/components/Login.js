@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { LOGIN_URL } from '../backend_urls.js';
-
+import './Login.css'
 
 const Login = (props) => {
 
@@ -10,7 +10,6 @@ const Login = (props) => {
 
 
   const logMeIn = async (event) => {
-    console.log("email: ", email, "password: ", password)
     axios({
       method: 'POST',
       url: LOGIN_URL,
@@ -20,7 +19,6 @@ const Login = (props) => {
       }
     })
     .then((response) => {
-      console.log(response)
       props.setToken(response.data.access_token)
     }).catch((error) => {
       if (error.response) {
@@ -39,11 +37,12 @@ const Login = (props) => {
 
 
     const emailChange = (event) => {
-      const {value, name} = event.target
+      const value = event.target.value
       setEmail(value)
     }
+
     const passwordChange = (event) => {
-      const {value, name} = event.target
+      const value = event.target.value
       setPassword(value)
     }
 

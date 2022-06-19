@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { SIGNUP_URL } from '../backend_urls.js';
 
@@ -40,19 +40,19 @@ const SignUp = (props) => {
 
 
     const emailChange = (event) => {
-        const { value, name } = event.target
+        const value = event.target.value
         setEmail(value)
     }
     const passwordChange = (event) => {
-        const { value, name } = event.target
+        const value = event.target.value
         setPassword(value)
     }
     const firstNameChange = (event) => {
-        const { value, name } = event.target
+        const value = event.target.value
         setFirstName(value)
     }
     const lastNameChange = (event) => {
-        const { value, name } = event.target
+        const value = event.target.value
         setLastName(value)
     }
     return (

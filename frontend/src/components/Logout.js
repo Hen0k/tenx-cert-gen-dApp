@@ -1,6 +1,6 @@
 import axios from "axios";
 import { LOGOUT_URL } from '../backend_urls.js';
-
+import React from "react";
 
 const Logout = (props) => {
 
@@ -19,12 +19,14 @@ const Logout = (props) => {
         }
     })}
 
-  	return(
+  	return (
+      <>
 		<header className="App-header">
 			<button onClick={logMeOut}> 
         		Logout
       </button>
 		</header>
+    </>
 	)
 }
 
