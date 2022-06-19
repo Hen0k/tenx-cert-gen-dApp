@@ -16,6 +16,7 @@ jobs:
       matrix:
         # Run in all these versions of Python
         python-version: [3.9]
+        mongodb-version: ['5.0']
 
     steps:
         # Checkout the latest code from the repo
@@ -28,6 +29,10 @@ jobs:
         # Display the Python version being used
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.7.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
         # Install the Dependencies using pip
       - name: Install Dependencies
         run: |
